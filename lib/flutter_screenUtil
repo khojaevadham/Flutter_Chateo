@@ -1,0 +1,44 @@
+
+   =>  для скрыт клавиатура во время переход  resizeToAvoidBottomInset: false,
+
+
+    .sp — адаптивный размер текста.
+
+    .h — адаптивная высота.
+
+    .w — адаптивная ширина.
+
+    .r — адаптивный радиус (например, для скругления углов).
+
+    Text(
+      'Адаптивный текст',
+      style: TextStyle(fontSize: 16.sp), // Адаптивный размер текста
+    );
+
+    SizedBox(height: 20.h); // Адаптивный отступ
+
+    Container(
+      width: 100.w, // Адаптивная ширина
+      height: 50.h, // Адаптивная высота
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.r), // Адаптивный радиус
+        color: Colors.blue,
+      ),
+    );
+
+    OrientationBuilder вместе с flutter_screenutil для адаптации под портретную и ландшафтную ориентацию.
+
+    OrientationBuilder(
+      builder: (context, orientation) {
+        double fontSize = orientation == Orientation.portrait ? 16.sp : 20.sp;
+        return Text(
+          'Адаптивный текст',
+          style: TextStyle(fontSize: fontSize),
+        );
+      },
+    );
+
+    double screenWidth = ScreenUtil().screenWidth; // Ширина экрана
+    double screenHeight = ScreenUtil().screenHeight; // Высота экрана
+    double statusBarHeight = ScreenUtil().statusBarHeight; // Высота статус-бара
+    double bottomBarHeight = ScreenUtil().bottomBarHeight; // Высота нижней панели

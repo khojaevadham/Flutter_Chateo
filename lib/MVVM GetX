@@ -1,0 +1,28 @@
+lib/
+|- models/          # Модели данных (пользователь, сообщение, чат)
+|- views/           # Экранs (UI)
+|- controllers/     # ViewModel (GetXController)
+|- services/        # Сервисы (API, база данных)
+|- bindings/        # Привязки (Bindings для GetX)
+|- widgets/         # Кастомные виджеты
+|- routes/          # Маршруты (навигация)
+
+// bindings/auth_binding.dart
+class AuthBinding implements Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut(() => AuthController()); // Ленивая инициализация
+  }
+}
+
+
+// routes/app_pages.dart
+class AppPages {
+  static final routes = [
+    GetPage(
+      name: '/login',
+      page: () => LoginView(),
+      binding: AuthBinding(), // Привязываем AuthController к LoginView
+    ),
+  ];
+}
