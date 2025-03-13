@@ -1,3 +1,5 @@
+import 'package:chateo/core/constans/TextStyle/MulishBoldText.dart';
+import 'package:chateo/core/constans/TextStyle/MulishRegularText.dart';
 import 'package:chateo/core/constans/colors.dart';
 import 'package:chateo/core/constans/big_text.dart';
 import 'package:chateo/routes/app_routes/app_routes.dart';
@@ -8,6 +10,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../widgets/round_button.dart';
+import '../home_pages/more_pages/language/settings_language.dart';
 
 
 
@@ -56,10 +59,8 @@ class _StartPageState extends State<StartPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                   const BigText(
-                      size: 22,
-                      text: "Connect easily with your family and friends over countries",
-                      textAlign: TextAlign.center,
+                     const MulishBoldText(
+                        text: 'centerText',
                     ),
                     SizedBox(height: 20.h),
                   ],
@@ -72,15 +73,11 @@ class _StartPageState extends State<StartPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const Row(
+                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       InkWell(
-                        child: BigText(
-                          text: "Terms & Privacy Policy",
-                          size: 14,
-                          textAlign: TextAlign.center,
-                        ),
+                        child: MulishBoldRegular14(text: "privacyPolicy".tr)
                       ),
                     ],
                   ),
@@ -88,7 +85,7 @@ class _StartPageState extends State<StartPage> {
                   Padding(
                     padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
                     child: RoundButton(
-                      text: "Start Messaging",
+                      text: "startMes",
                       onPressed: () {
                         Get.toNamed(AppRoutes.login);
                       }

@@ -1,6 +1,7 @@
 import 'package:chateo/core/constans/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class RoundButton extends StatelessWidget {
   final String text;
@@ -23,11 +24,11 @@ class RoundButton extends StatelessWidget {
           backgroundColor: BColor.button_primary
       ),
         child: Text(
-          text,
+          text.tr,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 15.sp,
+            fontFamily: 'Mulish-SemiBold',
+            fontSize: 16.sp,
             color: Colors.white
           ),
         ));

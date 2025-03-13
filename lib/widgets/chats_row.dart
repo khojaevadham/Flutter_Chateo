@@ -1,3 +1,6 @@
+import 'package:chateo/core/constans/TextStyle/MulishBoldText.dart';
+import 'package:chateo/core/constans/TextStyle/MulishRegularText.dart';
+import 'package:chateo/core/constans/TextStyle/MulishSemiBText.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -64,50 +67,36 @@ class ChatsListItem extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        name,
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          color: TColor.text_primary,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        time,
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w400,
-                          color: TColor.text_secondary,
-                        ),
-                      ),
+
+                      MulishSemiBold(text: name, size: 16,),
+
+                      MulishRegularTime10(text: time),
                     ],
                   ),
+
+                  SizedBox(height: 5.h),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
-                        child: Text(
-                          message,
-                          style: TextStyle(
-                              fontSize: 14.sp,
-                            color: TColor.text_secondary,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
+                        child:
+                        MulishBoldRegular12(text: message),
                       ),
                       if (unreadCount > 0)
                         Container(
-                          padding: EdgeInsets.all(7),
-                          decoration: const BoxDecoration(
+                          padding: const EdgeInsets.all(7),
+                          decoration:  BoxDecoration(
                             shape: BoxShape.circle,
-                            color:  Color.fromRGBO(210, 213, 249, 1),
+                            color: BColor.total_sms_circly,
                           ),
                           child: Text(
                             unreadCount.toString(),
                             style: TextStyle(
-                              color: TColor.text_primary,
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w600,
+                              color: TColor.total_sms,
+                              fontSize: 10.sp,
+                              fontFamily: 'Mulish-SemiBold',
+                              // fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),

@@ -1,6 +1,10 @@
 
+import 'package:chateo/core/constans/TextStyle/MulishBoldText.dart';
+import 'package:chateo/core/constans/TextStyle/MulishRegularText.dart';
 import 'package:chateo/core/constans/colors.dart';
 import 'package:chateo/core/constans/big_text.dart';
+import 'package:chateo/views/pages/login_pages/enter_code.dart';
+import 'package:chateo/views/pages/login_pages/profile_page.dart';
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,6 +17,7 @@ import '../../../core/constans/loadingOverlay.dart';
 
 import '../../../widgets/round_button.dart';
 import '../../../widgets/sign_in_google_apple.dart';
+import '../home_pages/more_pages/language/settings_language.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -72,18 +77,13 @@ class _LoginPageState extends State<LoginPage> {
 
                Column(
                 children: [
-                 const BigText(
-                    text: "Enter Your Phone Number",
-                    textAlign: TextAlign.center,
-                    size: 22,
-                  ),
+
+                const MulishBoldText(text: "enterYPN"),
+
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 15.h),
-                    child: const BigText(
-                      text: "Please confirm your country code and enter your phone number",
-                      textAlign: TextAlign.center,
-                      fontWeight: FontWeight.w400,
-                      size: 16,
+                    child:  MulishBoldRegular14(
+                        text: 'plaseEYPN'.tr
                     ),
                   ),
                 ],
@@ -120,8 +120,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
 
-                  Text( "OR",
+                  Text( "or".tr,
                     style: TextStyle(
+                        fontFamily: 'Mulish-SemiBold',
                         color: Colors.grey,
                         fontWeight: FontWeight.w500,
                         fontSize: 16.sp
@@ -148,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                         ? Globs.IndicatorCircle()
                         : SignInGoogleApple(
                       icon: 'assets/img/logo/google_logo.svg',
-                      label: 'Sign up with Google',
+                      label: 'signUpG'.tr,
                       onPressed: _signInWithGoogle,
                     ),
                   ),
@@ -157,9 +158,9 @@ class _LoginPageState extends State<LoginPage> {
 
                     SignInGoogleApple(
                       icon: 'assets/img/logo/apple_logo.svg',
-                      label: 'Sign up with Apple',
+                      label: 'signUpA'.tr,
                       onPressed: () {
-                        LoadingOverlay.show(context);
+                        // LoadingOverlay.show(context);
                       },
                     ),
                   ],
@@ -178,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: () {
                           logincontroller.sendPhoneVerification(phoneController.text);
                         },
-                        text: "Continue",
+                        text: "continue",
                       )
                 )
               ),
@@ -221,9 +222,9 @@ class _LoginPageState extends State<LoginPage> {
             Text(
               countryCode.dialCode,
               style: TextStyle(
+                fontFamily: 'Mulish-SemiBold',
                 color: TColor.text_secondary,
                 fontSize: 14.sp,
-                fontWeight: FontWeight.w500,
               ),
             ),
           ],
@@ -246,9 +247,10 @@ class _LoginPageState extends State<LoginPage> {
         cursorColor: BColor.button_primary,
         decoration: InputDecoration(
           border: InputBorder.none,
-          hintText: "Phone Number",
+          hintText: "inputPhone".tr,
           hintStyle: TextStyle(
             fontSize: 14.sp,
+            fontFamily: 'Mulish-SemiBold',
             fontWeight: FontWeight.w500,
             color: TColor.text_secondary,
           ),
@@ -257,6 +259,7 @@ class _LoginPageState extends State<LoginPage> {
         textAlign: TextAlign.start,
         style: TextStyle(
           fontSize: 17.sp,
+          fontFamily: 'Mulish-SemiBold',
           color: TColor.text_primary,
           fontWeight: FontWeight.w500,
         ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../../../core/constans/animations_navigate.dart';
 import 'contact_page/contacts_page.dart';
@@ -43,7 +44,7 @@ class _Custom_NavigatorBarState extends State<Custom_NavigatorBar> {
     HapticFeedback.vibrate();
     if (index != selectedIndex) {
       Navigator.of(context).pushReplacement(
-          Route_animations.FadeRoute(Custom_NavigatorBar(selectedIndex: index,), 200)
+          Route_animations.FadeRoute(Custom_NavigatorBar(selectedIndex: index,), 300)
       );
     } else {
       setState(() {
@@ -68,7 +69,7 @@ class _Custom_NavigatorBarState extends State<Custom_NavigatorBar> {
           onDestinationSelected: _onItemTapped,
           animationDuration: const Duration(milliseconds: 200),
           labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-          height: 60,
+          height: 60.h,
           backgroundColor: Colors.white,
           elevation: 14,
           destinations: [
@@ -88,11 +89,12 @@ class _Custom_NavigatorBarState extends State<Custom_NavigatorBar> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                label,
+                label.tr,
                 style:  TextStyle(
-                    fontSize: 16.sp,
+                    fontSize: 14.sp,
                     color: TColor.text_primary,
-                    fontWeight: FontWeight.w600
+                    fontFamily: 'Mulish-Bold'
+                    // fontWeight: FontWeight.w600
                 ),
               ),
 

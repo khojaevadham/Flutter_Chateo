@@ -1,6 +1,9 @@
 
+import 'package:chateo/core/constans/TextStyle/MulishBoldText.dart';
+import 'package:chateo/core/constans/TextStyle/MulishRegularText.dart';
 import 'package:chateo/core/constans/colors.dart';
 import 'package:chateo/routes/app_routes/app_routes.dart';
+import 'package:chateo/views/pages/login_pages/profile_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -99,7 +102,7 @@ class _EnterCodeScreenState extends State<EnterCodeScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
+          padding:  EdgeInsets.symmetric(horizontal: 5.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -113,37 +116,31 @@ class _EnterCodeScreenState extends State<EnterCodeScreen> {
 
               SizedBox(height: 80.h,),
 
-              const BigText(
-                text: "Enter Code",
-                textAlign: TextAlign.center,
-                size: 22,
+              MulishBoldText(text: 'centerTextB'.tr),
+
+              SizedBox(height: 10.h),
+
+              MulishBoldRegular14(text: "${'centerTextS'}${widget.phoneNumber}".tr),
+
+              SizedBox(height: 50.h),
+
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 15.w),
+                child: Pinput(
+                    length: 6,
+                    onChanged: (value){
+                      setState(() {
+                        code = value;
+                      });
+                    },
+                    controller: controller,
+                    focusNode: focusNode,
+                    defaultPinTheme: defaultPinTheme,
+                    showCursor: true,
+                    cursor: cursor,
+                    preFilledWidget: preFilledWidget,
+                  ),
               ),
-
-               SizedBox(height: 10.h),
-
-              BigText(
-                text: "We have sent you an SMS with the code\nto +992 ${widget.phoneNumber}",
-                textAlign: TextAlign.center,
-                fontWeight: FontWeight.w400,
-                size: 15.sp,
-              ),
-
-               SizedBox(height: 50.h),
-
-                Pinput(
-                  length: 6,
-                  onChanged: (value){
-                    setState(() {
-                      code = value;
-                    });
-                  },
-                  controller: controller,
-                  focusNode: focusNode,
-                  defaultPinTheme: defaultPinTheme,
-                  showCursor: true,
-                  cursor: cursor,
-                  preFilledWidget: preFilledWidget,
-                ),
 
               const Spacer(),
 
@@ -153,11 +150,11 @@ class _EnterCodeScreenState extends State<EnterCodeScreen> {
                 child: _isResending
                     ? const CircularProgressIndicator(strokeWidth: 2)
                     : Text(
-                  "Resend Code",
+                  "resendCode".tr,
                   style: TextStyle(
                     color: BColor.button_primary,
                     fontSize: 14.sp,
-                    fontWeight: FontWeight.w400,
+                    fontFamily: "Mulish-Regular"
                   ),
                 ),
               ),
@@ -167,9 +164,10 @@ class _EnterCodeScreenState extends State<EnterCodeScreen> {
                 padding:  EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
                 child: RoundButton(
                   onPressed: () {
+                    // Get.to( ()=> ProfilePage());
                     signIn();
                     },
-                  text: "Confirm",
+                  text: "confirm".tr,
                 ),
               ),
 
@@ -184,8 +182,8 @@ class _EnterCodeScreenState extends State<EnterCodeScreen> {
     width: 55.w,
     height: 55.h,
     textStyle: TextStyle(
-      fontSize: 26.sp,
-      fontWeight: FontWeight.w500,
+      fontSize: 32.sp,
+      fontFamily: 'Mulish-Bold',
       color: TColor.text_primary,
     ),
     decoration: const BoxDecoration(),

@@ -1,9 +1,13 @@
 import 'dart:io';
 
+import 'package:chateo/core/constans/TextStyle/MulishBoldText.dart';
+import 'package:chateo/core/constans/TextStyle/MulishRegularText.dart';
+import 'package:chateo/core/constans/TextStyle/MulishSemiBText.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/constans/colors.dart';
 import '../../../../core/constans/big_text.dart';
@@ -39,7 +43,7 @@ class _ChatsPageState extends State<ChatsPage> {
 
     if(lastPress == null || now.difference(lastPress!) >  Duration(seconds: exitTime)){
       lastPress = now;
-      Globs.showBottomSnackbar(context, 'Нажмите еще раз, чтобы выйти из приложения');
+      Globs.showBottomSnackbar(context, 'closeApp'.tr);
       return Future.value(false);
     }
     exit(0);
@@ -77,11 +81,11 @@ class _ChatsPageState extends State<ChatsPage> {
               padding:  EdgeInsets.symmetric(horizontal: 20.w),
               child: Search_textfield(
                   controller: _controller,
-                  hintText: 'Placeholder'
+                  hintText: 'placeholder'.tr
               ),
             ),
 
-             SizedBox(height: 10.h),
+             // SizedBox(height: 5.h),
 
             Expanded(
               child: ListView.builder(
@@ -123,20 +127,18 @@ class _ChatsPageState extends State<ChatsPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const BigText(
-                     text: "Chats",
-                     size: 20,
-                     textAlign: TextAlign.start
-                 ),
+
+                const MulishSemiBold(text: 'chats', size: 18),
+
                 Row(
                   children: [
                     IconButton(
                       onPressed: () {},
-                      icon: SvgPicture.asset('assets/img/icons/add_chat.svg', width: 30, height: 30),
+                      icon: SvgPicture.asset('assets/img/icons/add_chat.svg', width: 25.w, height: 25.h),
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: SvgPicture.asset('assets/img/icons/views_icon.svg', width: 30, height: 30),
+                      icon: SvgPicture.asset('assets/img/icons/views_icon.svg', width: 25.w, height: 25.h),
                     ),
                   ],
                 ),
@@ -191,15 +193,10 @@ class _ChatsPageState extends State<ChatsPage> {
           ),
         ),
 
-         SizedBox(height: 5.h),
+        SizedBox(height: 5.h),
 
-        Text(
-          "Your Story",
-          style: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 14.sp,
-              color: TColor.text_primary),
-        ),
+         MulishRegular10(text: 'yourStory'.tr,)
+
       ],
     );
   }
@@ -239,16 +236,10 @@ class _ChatsPageState extends State<ChatsPage> {
           )
         ),
 
-         SizedBox(height: 5.h),
+        SizedBox(height: 5.h),
 
-        Text(
-          name,
-          style: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 14.sp,
-              color: TColor.text_primary
-          ),
-        ),
+        MulishRegular10(text: name,)
+
       ],
     );
   }

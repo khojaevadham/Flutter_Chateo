@@ -1,5 +1,5 @@
+import 'package:chateo/core/constans/TextStyle/MulishSemiBText.dart';
 import 'package:chateo/core/constans/colors.dart';
-import 'package:chateo/core/constans/big_text.dart';
 import 'package:chateo/routes/app_routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 
 import '../../../widgets/round_button.dart';
 import '../../../widgets/text_filed.dart';
+import '../home_pages/navigator_bar.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -28,7 +29,7 @@ class _ProfilePageState extends State<ProfilePage> {
       backgroundColor: Colors.white,
       body: SafeArea(
           child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5),
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
            child: Column(
              crossAxisAlignment: CrossAxisAlignment.start,
              children: [
@@ -41,10 +42,8 @@ class _ProfilePageState extends State<ProfilePage> {
                        icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
                        onPressed: () => Navigator.pop(context),
                      ),
-                      BigText(
-                         text: "Your Profile",
-                         size: 18.sp,
-                         textAlign: TextAlign.start)
+
+                      MulishSemiBold(text: 'yourProfile'.tr, size: 18)
                    ],
                  ),
                ),
@@ -105,14 +104,14 @@ class _ProfilePageState extends State<ProfilePage> {
 
                      Custom_input(
                          controller: firs_name,
-                         hintText: "First Name (Required)",
+                         hintText: "customInputName".tr,
                      ),
 
                      SizedBox( height:  15.h,),
 
                      Custom_input(
                        controller: last_name,
-                       hintText: "Last Name (Optional)",
+                       hintText: "customInputSurname".tr,
                      )
 
                    ],
@@ -126,7 +125,7 @@ class _ProfilePageState extends State<ProfilePage> {
                      onPressed: (){
                        Get.toNamed(AppRoutes.wrapper);
                      },
-                     text: "Save"),
+                     text: "save".tr),
                )
 
              ],

@@ -36,7 +36,8 @@ class _Custom_inputState extends State<Custom_input> {
           hintText: widget.hintText,
           hintStyle: TextStyle(
           fontSize:  15.sp,
-          fontWeight: FontWeight.w500,
+          // fontWeight: FontWeight.w500,
+            fontFamily: "Mulish-SemiBold",
           color: TColor.text_secondary,
         ),
 
@@ -58,6 +59,7 @@ class _Custom_inputState extends State<Custom_input> {
         style: TextStyle(
             fontSize:  18.sp,
             color: TColor.text_primary,
+            fontFamily: "Mulish-SemiBold",
             fontWeight: FontWeight.w500
         ),
       ),
@@ -87,7 +89,7 @@ class _Search_textfieldState extends State<Search_textfield> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50.r,
+      height: 45.r,
       width: double.maxFinite,
       decoration: BoxDecoration(
         color: BColor.input_code_fon,
@@ -100,7 +102,8 @@ class _Search_textfieldState extends State<Search_textfield> {
           hintText: widget.hintText,
           hintStyle: TextStyle(
             fontSize:  14.sp,
-            fontWeight: FontWeight.w500,
+            // fontWeight: FontWeight.w500,
+            fontFamily: 'Mulish-SemiBold',
             color: TColor.text_secondary,
           ),
 
@@ -118,7 +121,7 @@ class _Search_textfieldState extends State<Search_textfield> {
             ),
           ),
 
-          prefixIcon : Icon(Icons.search, size: 25, color: TColor.text_secondary),
+          prefixIcon : Icon(Icons.search, size: 25.h, color: TColor.text_secondary),
 
         ),
 
